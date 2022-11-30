@@ -1,0 +1,11 @@
+python-dotenv>=0.21.0
+tzlocal>=2.1
+autopep8>=1.5.4
+requests>=2.25.1
+flask>=1.1.2
+flask-wtf>=0.14
+flask-sqlalchemy>=3.0.2
+waitress>=2.1.2
+aniso8601>=9.0.1
+jsonschema>=4.17.1
+httpie>=3.2.1
