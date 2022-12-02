@@ -75,11 +75,10 @@ class UserDAO(object):
         try:
             db.session.delete(u)
             db.session.commit()
-            s = 'deleted'
         except Exception as e:
             print(e)
             api.abort(404, f'User {id} delete failed.')
-        return u.__dict__
+        return u
 
 dao = UserDAO()
 
@@ -87,7 +86,8 @@ dao = UserDAO()
 userModel = api.model('User', {
     'id': fields.Integer,
     'username': fields.String,
-    'role': fields.String
+    'role': fields.String,
+    'url': fields.Url(endpoint='id', absolute=True)
 })
 
 def UserAlreadyExists(Error):
@@ -112,6 +112,7 @@ class UserList(Resource):
 
 @ns.route('/<int:id>')
 @ns.response(404, 'User not found')
+@ns.param('id', 'The user id number')
 class UserApi(Resource):
     parser = reqparse.RequestParser()
     parser.add_argument('username', type=str, required=True,
@@ -133,6 +134,9 @@ class UserApi(Resource):
         return dao.update(id, api.payload), 201
         
     @ns.doc('delete_user')
+    @api.doc(responses={204: "User deleted"})
+    @ns.marshal_with(userModel, code=204)
     def delete(self, id):
-        return dao.delete(id)
+        return dao.delete(id), 204
 
+# That's all!

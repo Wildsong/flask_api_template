@@ -7,6 +7,14 @@ I haven't decided how much front end code will be included here. One thing at a 
 Just to get a taste of where this project is going, see this blog posting
 [Python microservices with Flask](https://blog.viktoradam.net/2017/12/16/python-microservices-with-flask/).
 
+## LOTS TO DO
+
+I need to break out separate files.
+
+I need to learn about blueprints.
+
+I need to work on the Docker set up. 
+
 ## Set up
 
 For development I usually run in a conda environment on the local machine.
