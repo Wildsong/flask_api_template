@@ -1,0 +1,22 @@
+version: '3.7'
+
+# Starts these services:
+#   redis, a message queue
+#   webapp, a web app implemented with flask, see it on port 5002
+#   worker, a celery app that processes requests from flask app
+#   monitor, a celery app called 'flower' that monitors celery, see it on port 5555
+
+services:
+  api:
+    container_name: flask_api_template
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flask:latest
+    environment:
+      - FLASK_APP=start_app
+    volumes:
+      - ${PWD}:/srv
+    ports:
+      - 5000:5000
+

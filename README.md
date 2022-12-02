@@ -48,6 +48,15 @@ By default VSCode runs hello_rest.py which implements a simple list of strings.
     http DELETE "http://localhost:5000/list" item="brick"
 ```
 
+Creating the user database with SqlAlchemy did not apply UNIQUE constraint.
+
+```console
+$ sqlite3 users.db
+sqlite> CREATE TABLE user(id INTEGER PRIMARY KEY, username VARCHAR UNIQUE, password VARCHAR, role VARCHAR);
+sqlite> .schema user
+sqlite> .quit
+```
+
 ## Fork
 
 I need to look at the official way to use templates, I think I can create 
