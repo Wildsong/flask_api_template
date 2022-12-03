@@ -13,7 +13,15 @@ I need to break out separate files.
 
 I need to learn about blueprints.
 
+I need to learn about request validation.
+
 I need to work on the Docker set up. 
+
+I want better error handling.
+
+I am tired of working on the Flask API so I am switching to a tiny
+Svelte app now to make it more fun to test. It will use the user database
+implemented in user_api.py. It will be in the client/ folder.
 
 ## Set up
 
@@ -65,11 +73,12 @@ sqlite> .schema user
 sqlite> .quit
 ```
 
-## Fork
+## Use as a repository template
 
-I need to look at the official way to use templates, I think I can create 
-a new project repository using
-this one as a template, so I don't actually have to fork it.
+Create a new repository and when you do, tell it you want to use this one as a template. 
+
+[Docs are here.](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository)
+
 ## Resources
 
 I started from my older project, [flask_template](https://github.com/Wildsong/flask_template).
